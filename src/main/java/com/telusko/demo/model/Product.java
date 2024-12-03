@@ -1,7 +1,6 @@
 package com.telusko.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,16 +14,25 @@ import java.util.Date;
 @Entity
 public class Product {
 
+
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
-    private String desc;
+    private String description;
     private String brand;
-    private String category;
     private BigDecimal price;
-    private Date releaseDate;
-    private boolean available;
-    private int quantity;
+    private String category;
 
+    private Date releaseDate;
+    private boolean productAvailable;
+    private int stockQuantity;
+
+    private String imageName;
+    private String imageType;
+
+    @Lob
+    private byte[] imageDate;
 
 }
